@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Elisha Modelevsky - PhD Candidate in Astrophysics at Hebrew University of Jerusalem, researching high energy astrophysical phenomena and stellar collisions.">
     <title>Elisha Modelevsky | Astrophysics PhD Researcher</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔭</text></svg>" type="image/svg+xml">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.min.js"></script>
     <style>
         :root {
@@ -26,6 +28,7 @@
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--light-bg);
+            scroll-behavior: smooth;
         }
         
         .container {
@@ -382,6 +385,36 @@
             color: var(--accent-color);
         }
         
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            text-decoration: none;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            transform: translateY(20px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 99;
+        }
+        
+        .scroll-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .scroll-top:hover {
+            background-color: var(--secondary-color);
+        }
+        
         @media (max-width: 768px) {
             .profile {
                 flex-direction: column;
@@ -429,6 +462,10 @@
             .right {
                 left: 0;
             }
+            
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -438,7 +475,7 @@
         <div class="stars" id="stars"></div>
         <div class="container header-content">
             <div class="profile">
-                <img src="profile_pic.jpg" alt="Elisha Modelevsky" class="profile-image">
+                <img src="profile_pic.jpg" alt="Elisha Modelevsky, Astrophysics PhD Candidate at Hebrew University of Jerusalem" class="profile-image">
                 <div class="profile-text">
                     <h1>Elisha Modelevsky</h1>
                     <p>PhD Candidate in Astrophysics</p>
@@ -455,7 +492,7 @@
             </div>
             <ul class="nav-links" id="nav-links">
                 <li><a href="#about">About</a></li>
-                <!--<li><a href="#research">Research</a></li>-->
+                <li><a href="#research">Research</a></li>
                 <li><a href="#publications">Publications</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -466,7 +503,7 @@
     <section id="about">
         <div class="container">
             <h2>About Me</h2>
-            <p>I am a PhD candidate in Astrophysics at HUJI, focusing on high energy astrophyical phenomena.
+            <p>I am a PhD candidate in Astrophysics at HUJI, focusing on high energy astrophysical phenomena.
             My research interests include collisions in dense stellar systems and self-similar solutions in hydrodynamics.</p>
             <p>Beyond research, I am committed to teaching and enjoy a good fantasy book.</p>
             
@@ -478,6 +515,41 @@
         </div>
     </section>
     
+    <section id="research" style="background-color: white;">
+        <div class="container">
+            <h2>Research</h2>
+            <div class="research-grid">
+                <div class="research-item">
+                    <div class="research-image">
+                        <img src="/api/placeholder/600/400" alt="Stellar Collisions in Dense Systems">
+                    </div>
+                    <div class="research-content">
+                        <h3>Stellar Collisions in Dense Systems</h3>
+                        <p>Investigating the collision rates of stars in dense stellar environments such as globular clusters and galactic nuclei, with focus on the limitations of the n∑v approximation in resonant potentials.</p>
+                    </div>
+                </div>
+                <div class="research-item">
+                    <div class="research-image">
+                        <img src="/api/placeholder/600/400" alt="Self-Similar Hydrodynamics">
+                    </div>
+                    <div class="research-content">
+                        <h3>Self-Similar Hydrodynamics</h3>
+                        <p>Finding self-similar flow solutions for strong shocks, both one-dimensional and two-dimensional.</p>
+                    </div>
+                </div>
+                <div class="research-item">
+                    <div class="research-image">
+                        <img src="/api/placeholder/600/400" alt="Computational Astrophysics">
+                    </div>
+                    <div class="research-content">
+                        <h3>Computational Astrophysics</h3>
+                        <p>Developing numerical methods and simulations to model high-energy astrophysical phenomena, utilizing both custom code and established computational frameworks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <section id="publications">
         <div class="container">
             <h2>Publications</h2>
@@ -485,7 +557,7 @@
                 <h3>Revisiting the strong shock problem: Converging and diverging shocks in different geometries</h3>
                 <p class="authors">Elisha Modelevsky, Re'em Sari</p>
                 <p class="journal">Physics of Fluids, 2021</p>
-                <p>An analysis of one-dimensional self-similar flows including a strong shock in various gemoetries.
+                <p>An analysis of one-dimensional self-similar flows including a strong shock in various geometries.
                 Establishes a connection between the different geometries and develops many analytical approximations.</p>
                 <a href="https://doi.org/10.1063/5.0047518" class="btn">Read Paper</a>
             </div>
@@ -551,7 +623,8 @@
                     <h3>Connect</h3>
                     <div class="social-links">
                         <a href="https://x.com/Elishamod" class="social-link" style="text-decoration: none; display: inline-block; width: 40px; height: 40px; line-height: 40px; background-color: #1a3a5f; border-radius: 50%; margin: 0 10px;">𝕏</a>
-                        <a href="https://github.com/elishamod" class="social-link" style="text-decoration: none; display: inline-block; width: 40px; height: 40px; line-height: 40px; background-color: #1a3a5f; border-radius: 50%; margin: 0 10px;">GH</a>
+                        <a href="https://github.com/elishamod" class="social-link" style="text-decoration: none; display: inline-block; width: 40px; height: 40px; line-height: 40px; background-color: #1a3a5f; border-radius: 50%; margin: 0 10px;">
+                            <img src="github-mark-white.svg" alt="Girl in a jacket" width="23" height="23"></a>
                     </div>
                 </div>
             </div>
@@ -563,6 +636,8 @@
             <p>&copy; 2025 Elisha Modelevsky. All rights reserved.</p>
         </div>
     </footer>
+    
+    <a href="#" class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</a>
     
     <script>
         // Create animated stars in the header
@@ -632,6 +707,25 @@
                     document.querySelector(this.getAttribute('href')).scrollIntoView({
                         behavior: 'smooth'
                     });
+                });
+            });
+            
+            // Scroll to top button functionality
+            const scrollTopButton = document.getElementById('scroll-top');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollTopButton.classList.add('visible');
+                } else {
+                    scrollTopButton.classList.remove('visible');
+                }
+            });
+            
+            scrollTopButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
                 });
             });
         });
