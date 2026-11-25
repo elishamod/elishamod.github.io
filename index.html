@@ -503,13 +503,14 @@
     <section id="about">
         <div class="container">
             <h2>About Me</h2>
-            <p>I am a PhD candidate in Astrophysics at HUJI, focusing on high energy astrophysical phenomena.
-            My research interests include dense stellar systems (like the center of our galaxy) and hydrodynamics.</p>
-            <p>Beyond research, I am committed to teaching, enthusiastic about math riddles, enjoy a good fantasy book, and love learning languages.</p>
+            <p>I am a PhD candidate in Astrophysics at HUJI. My research focuses on radiative transfer in Little Red Dots, where emission lines are formed and shaped by Thomson scattering.
+            My research interests also include dense stellar systems (like the center of our galaxy) and self-similar solutions in hydrodynamics.</p>
+            <p>Beyond research, I am committed to teaching, and I enjoy math riddles, fantasy books, learning languages and cooking.</p>
             
             <div class="skills">
                 <div class="skill-tag">High energy astrophysics</div>
-                <div class="skill-tag">Numerical schemes</div>
+                <div class="skill-tag">Radiative transfer</div>
+                <div class="skill-tag">Hydrodynamics</div>
                 <div class="skill-tag">Python and Fortran programming</div>
                 <div class="skill-tag">Languages: Hebrew, English, Russian, French</div>
             </div>
@@ -522,6 +523,15 @@
             <div class="research-grid">
                 <div class="research-item">
                     <div class="research-image">
+                        <img src="pics/nasa-hubble-space-telescope-EEx2k0nAfU4-unsplash.jpg" alt="LRD Modeling">
+                    </div>
+                    <div class="research-content">
+                        <h3>LRD Modeling</h3>
+                        <p>JWST's Little Red Dots are thought to be accreting black holes surrounded by dense ionized gas, and possibly an important part of the story of how black holes grow to supermassive sizes. I work on modeling their Thomson-dominated atmospheres and how emission lines form in them.</p>
+                    </div>
+                </div>
+                <div class="research-item">
+                    <div class="research-image">
                         <img src="pics/nasa-hubble-space-telescope-pFX99i3Ge4A-unsplash.jpg" alt="Stellar Collisions in Dense Systems">
                     </div>
                     <div class="research-content">
@@ -531,20 +541,11 @@
                 </div>
                 <div class="research-item">
                     <div class="research-image">
-                        <img src="/api/placeholder/600/400" alt="Self-Similar Hydrodynamics">
+                        <img src="pics/selfsimilar.png" alt="Self-Similar Hydrodynamics">
                     </div>
                     <div class="research-content">
                         <h3>Self-Similar Hydrodynamics</h3>
                         <p>Finding self-similar flow solutions for strong shocks, both one-dimensional and two-dimensional.</p>
-                    </div>
-                </div>
-                <div class="research-item">
-                    <div class="research-image">
-                        <img src="pics/nasa-hubble-space-telescope-EEx2k0nAfU4-unsplash.jpg" alt="Computational Astrophysics">
-                    </div>
-                    <div class="research-content">
-                        <h3>Computational Astrophysics</h3>
-                        <p>Developing numerical methods and simulations to model high-energy astrophysical phenomena, utilizing both custom code and established computational frameworks.</p>
                     </div>
                 </div>
             </div>
@@ -555,12 +556,11 @@
         <div class="container">
             <h2>Publications</h2>
             <div class="publication">
-                <h3>Revisiting the strong shock problem: Converging and diverging shocks in different geometries</h3>
-                <p class="authors">Elisha Modelevsky, Re'em Sari</p>
-                <p class="journal">Physics of Fluids, 2021</p>
-                <p>An analysis of one-dimensional self-similar flows including a strong shock in various geometries.
-                Establishes a connection between the different geometries and develops many analytical approximations.</p>
-                <a href="https://doi.org/10.1063/5.0047518" class="btn">Read Paper</a>
+                <h3>Emission line formation in scattering dominated media: implications for LRDs</h3>
+                <p class="authors">Elisha Modelevsky, Omri Nitzan, Re'em Sari, Eliot Quataert</p>
+                <p class="journal">Astrophysical Journal, 2026</p>
+                <p>We study how emission line formation and broadening in optically thick media where Thomson scattering is dominant, showing that the resulting line profile is roughly a broken power-law. This can fit H\(\alpha\) profiles observed in LRDs, and strengthens the case for interpretations like quasi-stars.</p>
+                <a href="https://arxiv.org/abs/2608.05283" class="btn">Read Paper</a>
             </div>
             <div class="publication">
                 <h3>The unreasonable effectiveness of the \(n \Sigma v\) approximation</h3>
@@ -569,12 +569,20 @@
                 <p>We show that the commonly used \(n \Sigma v\) formula is not always valid for stellar collision rates in dense environments, due to the resonant nature of the Kepler and the Harmonic potentials.</p>
                 <a href="https://doi.org/10.3847/1538-4357/ade878" class="btn">Read Paper</a>
             </div>
+            <div class="publication">
+                <h3>Revisiting the strong shock problem: Converging and diverging shocks in different geometries</h3>
+                <p class="authors">Elisha Modelevsky, Re'em Sari</p>
+                <p class="journal">Physics of Fluids, 2021</p>
+                <p>An analysis of one-dimensional self-similar flows including a strong shock in various geometries.
+                Establishes a connection between the different geometries and develops many analytical approximations.</p>
+                <a href="https://doi.org/10.1063/5.0047518" class="btn">Read Paper</a>
+            </div>
         </div>
     </section>
     
     <section id="education" style="background-color: white;">
         <div class="container">
-            <h2>Education & Experience</h2>
+            <h2>Education</h2>
             <div class="timeline">
                 <div class="timeline-item left">
                     <div class="timeline-content">
