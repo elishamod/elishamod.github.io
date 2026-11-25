@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Elisha Modelevsky - PhD Candidate in Astrophysics at Hebrew University of Jerusalem, researching high energy astrophysical phenomena and stellar collisions.">
+    <meta name="description" content="Elisha Modelevsky - PhD Candidate in Astrophysics at the Hebrew University of Jerusalem, researching radiative transfer in Little Red Dots, dense stellar systems, and self-similar hydrodynamics.">
     <title>Elisha Modelevsky | Astrophysics PhD Researcher</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔭</text></svg>" type="image/svg+xml">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.min.js"></script>
     <style>
         :root {
             --primary-color: #1a3a5f;
             --secondary-color: #3498db;
             --accent-color: #76c4e2;
             --text-color: #333;
+            --muted-text: #5a6a7a;
             --light-bg: #f5f8fa;
             --dark-bg: #0a1929;
         }
@@ -23,12 +24,15 @@
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--light-bg);
-            scroll-behavior: smooth;
         }
         
         .container {
@@ -80,7 +84,6 @@
             display: flex;
             align-items: center;
             gap: 40px;
-            margin-bottom: 40px;
         }
         
         .profile-image {
@@ -89,6 +92,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid var(--secondary-color);
+            flex-shrink: 0;
         }
         
         .profile-text h1 {
@@ -98,8 +102,33 @@
         
         .profile-text p {
             font-size: 1.2rem;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
             color: var(--accent-color);
+        }
+        
+        .header-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+        
+        .header-link {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(118, 196, 226, 0.5);
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            background-color: rgba(26, 58, 95, 0.55);
+            transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+        }
+        
+        .header-link:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            transform: translateY(-1px);
         }
         
         nav {
@@ -107,6 +136,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
         }
         
         .nav-container {
@@ -118,13 +148,14 @@
         .nav-links {
             display: flex;
             list-style: none;
+            flex-wrap: wrap;
         }
         
         .nav-links li a {
             display: block;
             color: white;
             text-decoration: none;
-            padding: 15px 20px;
+            padding: 15px 18px;
             transition: background-color 0.3s;
         }
         
@@ -136,6 +167,8 @@
             display: none;
             cursor: pointer;
             padding: 15px;
+            background: none;
+            border: none;
         }
         
         .hamburger-icon {
@@ -151,6 +184,7 @@
         .hamburger-icon:after {
             content: '';
             position: absolute;
+            left: 0;
             width: 100%;
             height: 100%;
             background-color: white;
@@ -181,12 +215,20 @@
             padding: 60px 0;
         }
         
+        .section-alt {
+            background-color: white;
+        }
+        
         section h2 {
             font-size: 2rem;
             margin-bottom: 30px;
             color: var(--primary-color);
             border-bottom: 2px solid var(--secondary-color);
             padding-bottom: 10px;
+        }
+        
+        #about p + p {
+            margin-top: 12px;
         }
         
         .research-grid {
@@ -229,18 +271,21 @@
         }
         
         .publication {
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #e1e8ed;
         }
         
         .publication:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
             border-bottom: none;
         }
         
         .publication h3 {
             font-size: 1.2rem;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            color: var(--primary-color);
         }
         
         .publication p {
@@ -253,6 +298,76 @@
         
         .publication .journal {
             color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        .pub-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 1.5px solid var(--primary-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .talks-list {
+            display: grid;
+            gap: 14px;
+        }
+        
+        .talk-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 20px;
+            padding: 16px 20px;
+            background-color: var(--light-bg);
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 6px;
+        }
+        
+        .talk-info h3 {
+            font-size: 1.05rem;
+            color: var(--primary-color);
+            margin-bottom: 2px;
+        }
+        
+        .talk-venue {
+            color: var(--muted-text);
+            font-size: 0.95rem;
+        }
+        
+        .talk-date {
+            color: var(--secondary-color);
+            font-weight: 600;
+            white-space: nowrap;
+            font-size: 0.95rem;
         }
         
         .skills {
@@ -339,6 +454,34 @@
         .timeline-content .date {
             color: var(--secondary-color);
             font-weight: bold;
+            margin-bottom: 6px;
+        }
+        
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        
+        .highlight-card {
+            background-color: var(--light-bg);
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+        
+        .highlight-card h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+        
+        .highlight-card ul {
+            padding-left: 18px;
+        }
+        
+        .highlight-card li + li {
+            margin-top: 8px;
         }
         
         .contact-grid {
@@ -353,6 +496,22 @@
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
+        }
+        
+        .contact-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .contact-card a.email-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            word-break: break-word;
+        }
+        
+        .contact-card a.email-link:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
         }
         
         .contact-icon {
@@ -371,18 +530,28 @@
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
+            gap: 14px;
+            margin-top: 16px;
         }
         
         .social-link {
             color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s;
+            font-size: 1.15rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            transition: background-color 0.2s, transform 0.2s;
         }
         
         .social-link:hover {
-            color: var(--accent-color);
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
         }
         
         .scroll-top {
@@ -421,6 +590,10 @@
                 text-align: center;
             }
             
+            .header-links {
+                justify-content: center;
+            }
+            
             .hamburger-menu {
                 display: block;
             }
@@ -438,7 +611,12 @@
             }
             
             .nav-links.active {
-                max-height: 300px;
+                max-height: 360px;
+            }
+            
+            .talk-item {
+                flex-direction: column;
+                gap: 4px;
             }
             
             .timeline::after {
@@ -479,7 +657,16 @@
                 <div class="profile-text">
                     <h1>Elisha Modelevsky</h1>
                     <p>PhD Candidate in Astrophysics</p>
-                    <p>Hebrew University of Jerusalem, Israel</p>
+                    <p>Racah Institute of Physics, Hebrew University of Jerusalem</p>
+                    <div class="header-links">
+                        <!-- Uncomment once you place your updated CV PDF in the repository root as cv.pdf -->
+                        <!-- <a href="cv.pdf" class="header-link" target="_blank" rel="noopener noreferrer">CV (PDF)</a> -->
+                        <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Modelevsky%2C%20Elisha%22" class="header-link" target="_blank" rel="noopener noreferrer">NASA ADS</a>
+                        <a href="https://orcid.org/0000-0003-4105-3443" class="header-link" target="_blank" rel="noopener noreferrer">ORCID</a>
+                        <a href="https://scholar.google.com/scholar?q=author%3A%22Elisha+Modelevsky%22" class="header-link" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+                        <a href="https://github.com/elishamod" class="header-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="mailto:elisha.modelevsky@mail.huji.ac.il" class="header-link">Email</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -487,14 +674,16 @@
     
     <nav>
         <div class="container nav-container">
-            <div class="hamburger-menu" id="hamburger-menu">
+            <button type="button" class="hamburger-menu" id="hamburger-menu" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span class="hamburger-icon"></span>
-            </div>
+            </button>
             <ul class="nav-links" id="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#research">Research</a></li>
                 <li><a href="#publications">Publications</a></li>
-                <li><a href="#education">Education</a></li>
+                <li><a href="#talks">Talks</a></li>
+                <li><a href="#education">Background</a></li>
+                <li><a href="#highlights">Teaching &amp; Awards</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -503,21 +692,22 @@
     <section id="about">
         <div class="container">
             <h2>About Me</h2>
-            <p>I am a PhD candidate in Astrophysics at HUJI. My research focuses on radiative transfer in Little Red Dots, where emission lines are formed and shaped by Thomson scattering.
-            My research interests also include dense stellar systems (like the center of our galaxy) and self-similar solutions in hydrodynamics.</p>
-            <p>Beyond research, I am committed to teaching, and I enjoy math riddles, fantasy books, learning languages and cooking.</p>
+            <p>I am a PhD candidate in Astrophysics at the Hebrew University of Jerusalem (HUJI), supported by a Milner Fellowship and advised by Prof. Re'em Sari. My research focuses on radiative transfer in Little Red Dots, where emission lines are formed and shaped by Thomson scattering. My interests also include stellar dynamics in dense systems and self-similar solutions in hydrodynamics.</p>
+            <p>Beyond research, I am committed to teaching and organizing our department journal club, and I enjoy math riddles, fantasy books, learning languages, and cooking.</p>
             
             <div class="skills">
-                <div class="skill-tag">High energy astrophysics</div>
+                <div class="skill-tag">High-energy astrophysics</div>
                 <div class="skill-tag">Radiative transfer</div>
                 <div class="skill-tag">Hydrodynamics</div>
-                <div class="skill-tag">Python and Fortran programming</div>
-                <div class="skill-tag">Languages: Hebrew, English, Russian, French</div>
+                <div class="skill-tag">Stellar dynamics</div>
+                <div class="skill-tag">Python</div>
+                <div class="skill-tag">Fortran</div>
+                <div class="skill-tag">Matlab</div>
             </div>
         </div>
     </section>
     
-    <section id="research" style="background-color: white;">
+    <section id="research" class="section-alt">
         <div class="container">
             <h2>Research</h2>
             <div class="research-grid">
@@ -536,7 +726,7 @@
                     </div>
                     <div class="research-content">
                         <h3>Stellar Collisions in Dense Systems</h3>
-                        <p>Investigating the collision rates of stars in dense stellar environments such as globular clusters and galactic nuclei, with focus on the limitations of the n∑v approximation in resonant potentials.</p>
+                        <p>Investigating the collision rates of stars in dense stellar environments such as globular clusters and galactic nuclei, with focus on the limitations of the \(n\Sigma v\) approximation in resonant potentials.</p>
                     </div>
                 </div>
                 <div class="research-item">
@@ -545,7 +735,7 @@
                     </div>
                     <div class="research-content">
                         <h3>Self-Similar Hydrodynamics</h3>
-                        <p>Finding self-similar flow solutions for strong shocks, both one-dimensional and two-dimensional.</p>
+                        <p>Finding analytical and numerical self-similar flow solutions for strong shocks in one and two dimensions. These solutions illuminate the physics of blast waves and asymmetric explosions while providing exact benchmarks for hydrodynamic codes.</p>
                     </div>
                 </div>
             </div>
@@ -558,55 +748,143 @@
             <div class="publication">
                 <h3>Emission line formation in scattering dominated media: implications for LRDs</h3>
                 <p class="authors">Elisha Modelevsky, Omri Nitzan, Re'em Sari, Eliot Quataert</p>
-                <p class="journal">Astrophysical Journal, 2026</p>
-                <p>We study how emission line formation and broadening in optically thick media where Thomson scattering is dominant, showing that the resulting line profile is roughly a broken power-law. This can fit H\(\alpha\) profiles observed in LRDs, and strengthens the case for interpretations like quasi-stars.</p>
-                <a href="https://arxiv.org/abs/2608.05283" class="btn">Read Paper</a>
+                <p class="journal">Astrophysical Journal, 2026 (Accepted)</p>
+                <p>We study emission line formation and broadening in optically thick media where Thomson scattering is dominant, showing that the resulting line profile is roughly a broken power-law. This fits H\(\alpha\) profiles observed in LRDs and strengthens the case for interpretations such as quasi-stars.</p>
+                <div class="pub-links">
+                    <a href="https://arxiv.org/abs/2608.05283" class="btn" target="_blank" rel="noopener noreferrer">arXiv</a>
+                </div>
             </div>
             <div class="publication">
                 <h3>The unreasonable effectiveness of the \(n \Sigma v\) approximation</h3>
                 <p class="authors">Elisha Modelevsky, Nicholas C. Stone, Re'em Sari</p>
-                <p class="journal">Astrophysical Journal, 2025</p>
-                <p>We show that the commonly used \(n \Sigma v\) formula is not always valid for stellar collision rates in dense environments, due to the resonant nature of the Kepler and the Harmonic potentials.</p>
-                <a href="https://doi.org/10.3847/1538-4357/ade878" class="btn">Read Paper</a>
+                <p class="journal">Astrophysical Journal, 989, 64 (2025)</p>
+                <p>We show that the commonly used \(n \Sigma v\) formula is not always valid for stellar collision rates in dense environments, due to the resonant nature of the Kepler and Harmonic potentials.</p>
+                <div class="pub-links">
+                    <a href="https://doi.org/10.3847/1538-4357/ade878" class="btn" target="_blank" rel="noopener noreferrer">Journal (ApJ)</a>
+                    <a href="https://arxiv.org/abs/2411.17436" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">arXiv</a>
+                </div>
             </div>
             <div class="publication">
                 <h3>Revisiting the strong shock problem: Converging and diverging shocks in different geometries</h3>
                 <p class="authors">Elisha Modelevsky, Re'em Sari</p>
-                <p class="journal">Physics of Fluids, 2021</p>
-                <p>An analysis of one-dimensional self-similar flows including a strong shock in various geometries.
-                Establishes a connection between the different geometries and develops many analytical approximations.</p>
-                <a href="https://doi.org/10.1063/5.0047518" class="btn">Read Paper</a>
+                <p class="journal">Physics of Fluids, 33, 056105 (2021)</p>
+                <p>An analysis of one-dimensional self-similar flows including a strong shock in various geometries. Establishes a connection between the different geometries and develops analytical approximations.</p>
+                <div class="pub-links">
+                    <a href="https://doi.org/10.1063/5.0047518" class="btn" target="_blank" rel="noopener noreferrer">Journal (Phys. Fluids)</a>
+                    <a href="https://arxiv.org/abs/2102.07235" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">arXiv</a>
+                </div>
             </div>
         </div>
     </section>
     
-    <section id="education" style="background-color: white;">
+    <section id="talks" class="section-alt">
         <div class="container">
-            <h2>Education</h2>
+            <h2>Selected Talks</h2>
+            <div class="talks-list">
+                <div class="talk-item">
+                    <div class="talk-info">
+                        <h3>Anna de-Graaff's Group Meeting (remote)</h3>
+                        <p class="talk-venue">Max Planck Institute for Astronomy (MPIA), Heidelberg, Germany</p>
+                    </div>
+                    <span class="talk-date">October 2026</span>
+                </div>
+                <div class="talk-item">
+                    <div class="talk-info">
+                        <h3>Eliot Quataert's Group Meeting</h3>
+                        <p class="talk-venue">Princeton University, USA</p>
+                    </div>
+                    <span class="talk-date">September 2026</span>
+                </div>
+                <div class="talk-item">
+                    <div class="talk-info">
+                        <h3>IR Group Seminar</h3>
+                        <p class="talk-venue">Max Planck Institute for Extraterrestrial Physics (MPE), Garching, Germany</p>
+                    </div>
+                    <span class="talk-date">August 2026</span>
+                </div>
+                <div class="talk-item">
+                    <div class="talk-info">
+                        <h3>Astrophysics Seminar</h3>
+                        <p class="talk-venue">Bar-Ilan University, Israel</p>
+                    </div>
+                    <span class="talk-date">April 2026</span>
+                </div>
+                <div class="talk-item">
+                    <div class="talk-info">
+                        <h3>RESCEU Seminar</h3>
+                        <p class="talk-venue">University of Tokyo, Japan</p>
+                    </div>
+                    <span class="talk-date">March 2026</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="education">
+        <div class="container">
+            <h2>Education &amp; Experience</h2>
             <div class="timeline">
                 <div class="timeline-item left">
                     <div class="timeline-content">
                         <h3>PhD in Astrophysics</h3>
                         <p class="date">2024 - Present</p>
-                        <p>Racah Institute, HUJI</p>
+                        <p>Racah Institute of Physics, HUJI</p>
                         <p>Advisor: Prof. Re'em Sari.</p>
                     </div>
                 </div>
                 <div class="timeline-item right">
                     <div class="timeline-content">
-                        <h3>MSc in Physics</h3>
-                        <p class="date">2019 - 2021</p>
-                        <p>Racah Institute, HUJI</p>
-                        <p>Advisor: Prof. Re'em Sari.</p>
+                        <h3>Physics Researcher</h3>
+                        <p class="date">2018 - 2024</p>
+                        <p>Israel Defense Force</p>
+                        <p>Applied physics research and modeling.</p>
                     </div>
                 </div>
                 <div class="timeline-item left">
                     <div class="timeline-content">
+                        <h3>MSc in Physics</h3>
+                        <p class="date">2019 - 2020</p>
+                        <p>Racah Institute of Physics, HUJI (<em>magna cum laude</em>)</p>
+                        <p>Advisor: Prof. Re'em Sari.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
                         <h3>BSc in Physics</h3>
                         <p class="date">2015 - 2018</p>
-                        <p>HUJI</p>
+                        <p>HUJI (<em>magna cum laude</em>)</p>
                         <p>The Talpiot program.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="highlights" class="section-alt">
+        <div class="container">
+            <h2>Teaching, Service &amp; Awards</h2>
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <h3>Teaching</h3>
+                    <ul>
+                        <li><strong>Teaching Assistant, HUJI (2025–Present):</strong> Analytical Mechanics (77303) and Analytical Electrodynamics (77401).</li>
+                    </ul>
+                </div>
+                <div class="highlight-card">
+                    <h3>Academic Service</h3>
+                    <ul>
+                        <li><strong>HUJI Astrophysics Journal Club (2025–Present):</strong> Revived and currently organize the departmental journal club.</li>
+                    </ul>
+                </div>
+                <div class="highlight-card">
+                    <h3>Selected Honors &amp; Fellowships</h3>
+                    <ul>
+                        <li>Milner Fellowship (2024–Present)</li>
+                        <li>Poster Competition Award, HUJI Faculty of Sciences Day 100th Anniversary (2025)</li>
+                        <li>Department Annual Excellence Award (2021, 2022, 2023)</li>
+                        <li>Dean's List, M.Sc. (2020) &amp; B.Sc. (2016, 2018)</li>
+                        <li>Silver Medals, IPhO &amp; APhO (2014)</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -619,21 +897,25 @@
                 <div class="contact-card">
                     <div class="contact-icon">✉️</div>
                     <h3>Email</h3>
-                    <p>elisha.modelevsky@mail.huji.ac.il</p>
+                    <p><a class="email-link" href="mailto:elisha.modelevsky@mail.huji.ac.il">elisha.modelevsky@mail.huji.ac.il</a></p>
                 </div>
                 <div class="contact-card">
                     <div class="contact-icon">🏛️</div>
                     <h3>Office</h3>
-                    <p>Ross building, Room 208</p>
-                    <p>Edmond J. Safra Campus</p>
+                    <p>Ross Building, Room 208</p>
+                    <p>Edmond J. Safra Campus, HUJI</p>
                 </div>
                 <div class="contact-card">
-                    <div class="contact-icon">📱</div>
+                    <div class="contact-icon">🔗</div>
                     <h3>Connect</h3>
                     <div class="social-links">
-                        <a href="https://x.com/Elishamod" class="social-link" style="text-decoration: none; display: inline-block; width: 40px; height: 40px; line-height: 40px; background-color: #1a3a5f; border-radius: 50%; margin: 0 10px;">𝕏</a>
-                        <a href="https://github.com/elishamod" class="social-link" style="text-decoration: none; display: inline-block; width: 40px; height: 40px; line-height: 40px; background-color: #1a3a5f; border-radius: 50%; margin: 0 10px;">
-                            <img src="pics/github-mark-white.svg" alt="Girl in a jacket" width="23" height="23"></a>
+                        <a href="https://x.com/Elishamod" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter) profile">𝕏</a>
+                        <a href="https://github.com/elishamod" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+                            <img src="pics/github-mark-white.svg" alt="GitHub" width="22" height="22">
+                        </a>
+                        <a href="https://orcid.org/0000-0003-4105-3443" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="ORCID profile" title="ORCID">iD</a>
+                        <!-- Uncomment and add your LinkedIn URL if you want to link it here -->
+                        <a href="https://www.linkedin.com/in/elishamod" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">in</a>
                     </div>
                 </div>
             </div>
@@ -642,14 +924,13 @@
     
     <footer>
         <div class="container">
-            <p>&copy; 2025 Elisha Modelevsky. All rights reserved.</p>
+            <p>&copy; 2026 Elisha Modelevsky. All rights reserved.</p>
         </div>
     </footer>
     
     <a href="#" class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</a>
     
     <script>
-        // Create animated stars in the header
         document.addEventListener('DOMContentLoaded', function() {
             const starsContainer = document.getElementById('stars');
             const starsCount = 100;
@@ -658,14 +939,9 @@
                 const star = document.createElement('div');
                 star.classList.add('star');
                 
-                // Random position
                 const x = Math.random() * 100;
                 const y = Math.random() * 100;
-                
-                // Random size
                 const size = Math.random() * 2 + 1;
-                
-                // Random opacity
                 const opacity = Math.random() * 0.8 + 0.2;
                 
                 star.style.left = x + '%';
@@ -673,14 +949,11 @@
                 star.style.width = size + 'px';
                 star.style.height = size + 'px';
                 star.style.opacity = opacity;
-                
-                // Animation
                 star.style.animation = `twinkle ${Math.random() * 5 + 2}s infinite`;
                 
                 starsContainer.appendChild(star);
             }
             
-            // Add keyframes for twinkling
             const style = document.createElement('style');
             style.textContent = `
                 @keyframes twinkle {
@@ -691,35 +964,36 @@
             `;
             document.head.appendChild(style);
             
-            // Hamburger menu functionality
             const hamburgerMenu = document.getElementById('hamburger-menu');
             const navLinks = document.getElementById('nav-links');
             
             hamburgerMenu.addEventListener('click', function() {
-                this.classList.toggle('active');
+                const isExpanded = this.classList.toggle('active');
                 navLinks.classList.toggle('active');
+                this.setAttribute('aria-expanded', isExpanded);
             });
             
-            // Close menu when clicking on a link
             const links = document.querySelectorAll('.nav-links li a');
             links.forEach(link => {
                 link.addEventListener('click', function() {
                     hamburgerMenu.classList.remove('active');
                     navLinks.classList.remove('active');
+                    hamburgerMenu.setAttribute('aria-expanded', 'false');
                 });
             });
             
-            // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    const targetSelector = this.getAttribute('href');
+                    if (targetSelector === '#') return;
+                    const target = document.querySelector(targetSelector);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
                 });
             });
             
-            // Scroll to top button functionality
             const scrollTopButton = document.getElementById('scroll-top');
             
             window.addEventListener('scroll', function() {
