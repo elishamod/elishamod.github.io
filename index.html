@@ -1,653 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="gold-dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Elisha Modelevsky - PhD Candidate in Astrophysics at the Hebrew University of Jerusalem, researching radiative transfer in Little Red Dots, dense stellar systems, and self-similar hydrodynamics.">
     <title>Elisha Modelevsky | Astrophysics PhD Researcher</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔭</text></svg>" type="image/svg+xml">
+    <script src="assets/theme-init.js"></script>
+    <link rel="stylesheet" href="assets/style.css">
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.min.js"></script>
-    <style>
-        :root {
-            --primary-color: #1a3a5f;
-            --secondary-color: #3498db;
-            --accent-color: #76c4e2;
-            --text-color: #333;
-            --muted-text: #5a6a7a;
-            --light-bg: #f5f8fa;
-            --dark-bg: #0a1929;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--light-bg);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background-color: var(--dark-bg);
-            color: white;
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .header-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .cosmic-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 70% 20%, #0a1929 0%, #000 100%);
-            opacity: 0.9;
-            z-index: 1;
-        }
-        
-        .stars {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-        
-        .star {
-            position: absolute;
-            background-color: #fff;
-            border-radius: 50%;
-        }
-        
-        .profile {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-        
-        .profile-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--secondary-color);
-            flex-shrink: 0;
-        }
-        
-        .profile-text h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .profile-text p {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-            color: var(--accent-color);
-        }
-        
-        .header-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 18px;
-        }
-        
-        .header-link {
-            display: inline-block;
-            padding: 6px 14px;
-            border-radius: 20px;
-            border: 1px solid rgba(118, 196, 226, 0.5);
-            color: white;
-            text-decoration: none;
-            font-size: 0.9rem;
-            background-color: rgba(26, 58, 95, 0.55);
-            transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
-        }
-        
-        .header-link:hover {
-            background-color: var(--secondary-color);
-            border-color: var(--secondary-color);
-            transform: translateY(-1px);
-        }
-        
-        nav {
-            background-color: var(--primary-color);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-            flex-wrap: wrap;
-        }
-        
-        .nav-links li a {
-            display: block;
-            color: white;
-            text-decoration: none;
-            padding: 15px 18px;
-            transition: background-color 0.3s;
-        }
-        
-        .nav-links li a:hover {
-            background-color: var(--secondary-color);
-        }
-        
-        .hamburger-menu {
-            display: none;
-            cursor: pointer;
-            padding: 15px;
-            background: none;
-            border: none;
-        }
-        
-        .hamburger-icon {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background-color: white;
-            position: relative;
-            transition: background-color 0.3s;
-        }
-        
-        .hamburger-icon:before,
-        .hamburger-icon:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: white;
-            transition: all 0.3s;
-        }
-        
-        .hamburger-icon:before {
-            transform: translateY(-8px);
-        }
-        
-        .hamburger-icon:after {
-            transform: translateY(8px);
-        }
-        
-        .hamburger-menu.active .hamburger-icon {
-            background-color: transparent;
-        }
-        
-        .hamburger-menu.active .hamburger-icon:before {
-            transform: rotate(45deg);
-        }
-        
-        .hamburger-menu.active .hamburger-icon:after {
-            transform: rotate(-45deg);
-        }
-        
-        section {
-            padding: 60px 0;
-        }
-        
-        .section-alt {
-            background-color: white;
-        }
-        
-        section h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 10px;
-        }
-        
-        #about p + p {
-            margin-top: 12px;
-        }
-        
-        .research-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-        
-        .research-item {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        
-        .research-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .research-image {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .research-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .research-content {
-            padding: 20px;
-        }
-        
-        .research-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-        
-        .publication {
-            margin-bottom: 24px;
-            padding-bottom: 24px;
-            border-bottom: 1px solid #e1e8ed;
-        }
-        
-        .publication:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-        
-        .publication h3 {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-            color: var(--primary-color);
-        }
-        
-        .publication p {
-            margin-bottom: 10px;
-        }
-        
-        .publication .authors {
-            font-style: italic;
-        }
-        
-        .publication .journal {
-            color: var(--secondary-color);
-            font-weight: 600;
-        }
-        
-        .pub-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 12px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 8px 16px;
-            background-color: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: background-color 0.2s, transform 0.2s;
-        }
-        
-        .btn:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-1px);
-        }
-        
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--primary-color);
-            border: 1.5px solid var(--primary-color);
-        }
-        
-        .btn-secondary:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        .talks-list {
-            display: grid;
-            gap: 14px;
-        }
-        
-        .talk-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            gap: 20px;
-            padding: 16px 20px;
-            background-color: var(--light-bg);
-            border-left: 4px solid var(--secondary-color);
-            border-radius: 6px;
-        }
-        
-        .talk-info h3 {
-            font-size: 1.05rem;
-            color: var(--primary-color);
-            margin-bottom: 2px;
-        }
-        
-        .talk-venue {
-            color: var(--muted-text);
-            font-size: 0.95rem;
-        }
-        
-        .talk-date {
-            color: var(--secondary-color);
-            font-weight: 600;
-            white-space: nowrap;
-            font-size: 0.95rem;
-        }
-        
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        
-        .skill-tag {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-        
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 2px;
-            background-color: var(--secondary-color);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -1px;
-        }
-        
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: var(--light-bg);
-            border: 4px solid var(--secondary-color);
-            border-radius: 50%;
-            top: 15px;
-            z-index: 1;
-        }
-        
-        .left {
-            left: 0;
-            text-align: right;
-        }
-        
-        .right {
-            left: 50%;
-        }
-        
-        .left::after {
-            right: -12px;
-        }
-        
-        .right::after {
-            left: -12px;
-        }
-        
-        .timeline-content {
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .timeline-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-        
-        .timeline-content .date {
-            color: var(--secondary-color);
-            font-weight: bold;
-            margin-bottom: 6px;
-        }
-        
-        .highlights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-        }
-        
-        .highlight-card {
-            background-color: var(--light-bg);
-            padding: 24px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-        }
-        
-        .highlight-card h3 {
-            color: var(--primary-color);
-            font-size: 1.2rem;
-            margin-bottom: 12px;
-        }
-        
-        .highlight-card ul {
-            padding-left: 18px;
-        }
-        
-        .highlight-card li + li {
-            margin-top: 8px;
-        }
-        
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .contact-card {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        
-        .contact-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-        
-        .contact-card a.email-link {
-            color: var(--primary-color);
-            text-decoration: none;
-            word-break: break-word;
-        }
-        
-        .contact-card a.email-link:hover {
-            color: var(--secondary-color);
-            text-decoration: underline;
-        }
-        
-        .contact-icon {
-            font-size: 2rem;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-        }
-        
-        footer {
-            background-color: var(--dark-bg);
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 14px;
-            margin-top: 16px;
-        }
-        
-        .social-link {
-            color: white;
-            font-size: 1.15rem;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 42px;
-            height: 42px;
-            background-color: var(--primary-color);
-            border-radius: 50%;
-            transition: background-color 0.2s, transform 0.2s;
-        }
-        
-        .social-link:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-        
-        .scroll-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            text-decoration: none;
-            opacity: 0;
-            transition: opacity 0.3s, transform 0.3s;
-            transform: translateY(20px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            z-index: 99;
-        }
-        
-        .scroll-top.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .scroll-top:hover {
-            background-color: var(--secondary-color);
-        }
-        
-        @media (max-width: 768px) {
-            .profile {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .header-links {
-                justify-content: center;
-            }
-            
-            .hamburger-menu {
-                display: block;
-            }
-            
-            .nav-links {
-                flex-direction: column;
-                position: absolute;
-                background-color: var(--primary-color);
-                width: 100%;
-                left: 0;
-                top: 100%;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease-out;
-            }
-            
-            .nav-links.active {
-                max-height: 360px;
-            }
-            
-            .talk-item {
-                flex-direction: column;
-                gap: 4px;
-            }
-            
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item::after {
-                left: 18px;
-            }
-            
-            .left {
-                text-align: left;
-            }
-            
-            .right {
-                left: 0;
-            }
-            
-            .research-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <script defer src="assets/main.js"></script>
 </head>
 <body>
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to blue-light theme" aria-pressed="false">
+        <span id="theme-toggle-icon" aria-hidden="true"></span>
+        <span id="theme-toggle-label">Light</span>
+    </button>
+
+    <!-- ==================== HEADER ==================== -->
     <header>
         <div class="cosmic-bg"></div>
         <div class="stars" id="stars"></div>
@@ -671,7 +41,8 @@
             </div>
         </div>
     </header>
-    
+
+    <!-- ==================== NAVIGATION ==================== -->
     <nav>
         <div class="container nav-container">
             <button type="button" class="hamburger-menu" id="hamburger-menu" aria-label="Toggle navigation menu" aria-expanded="false">
@@ -688,13 +59,14 @@
             </ul>
         </div>
     </nav>
-    
+
+    <!-- ==================== ABOUT ==================== -->
     <section id="about">
         <div class="container">
             <h2>About Me</h2>
             <p>I am a PhD candidate in Astrophysics at the Hebrew University of Jerusalem (HUJI), supported by a Milner Fellowship and advised by Prof. Re'em Sari. My research focuses on radiative transfer in Little Red Dots, where emission lines are formed and shaped by Thomson scattering. My interests also include stellar dynamics in dense systems and self-similar solutions in hydrodynamics.</p>
             <p>Beyond research, I am committed to teaching and organizing our department journal club, and I enjoy math riddles, fantasy books, learning languages, and cooking.</p>
-            
+
             <div class="skills">
                 <div class="skill-tag">High-energy astrophysics</div>
                 <div class="skill-tag">Radiative transfer</div>
@@ -706,7 +78,8 @@
             </div>
         </div>
     </section>
-    
+
+    <!-- ==================== RESEARCH ==================== -->
     <section id="research" class="section-alt">
         <div class="container">
             <h2>Research</h2>
@@ -735,13 +108,14 @@
                     </div>
                     <div class="research-content">
                         <h3>Self-Similar Hydrodynamics</h3>
-                        <p>Finding analytical and numerical self-similar flow solutions for strong shocks in one and two dimensions. These solutions illuminate the physics of blast waves and asymmetric explosions while providing exact benchmarks for hydrodynamic codes.</p>
+                        <p>Finding analytical and numerical self-similar flow solutions for strong shocks in one and two dimensions. These solutions illuminate the physics of blast waves and asymmetric explosions, and provide exact benchmarks for hydrodynamic codes.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
+    <!-- ==================== PUBLICATIONS ==================== -->
     <section id="publications">
         <div class="container">
             <h2>Publications</h2>
@@ -776,7 +150,8 @@
             </div>
         </div>
     </section>
-    
+
+    <!-- ==================== SELECTED TALKS ==================== -->
     <section id="talks" class="section-alt">
         <div class="container">
             <h2>Selected Talks</h2>
@@ -819,7 +194,8 @@
             </div>
         </div>
     </section>
-    
+
+    <!-- ==================== EDUCATION & EXPERIENCE ==================== -->
     <section id="education">
         <div class="container">
             <h2>Education &amp; Experience</h2>
@@ -859,7 +235,8 @@
             </div>
         </div>
     </section>
-    
+
+    <!-- ==================== TEACHING, SERVICE & AWARDS ==================== -->
     <section id="highlights" class="section-alt">
         <div class="container">
             <h2>Teaching, Service &amp; Awards</h2>
@@ -889,7 +266,8 @@
             </div>
         </div>
     </section>
-    
+
+    <!-- ==================== CONTACT ==================== -->
     <section id="contact">
         <div class="container">
             <h2>Contact</h2>
@@ -914,104 +292,19 @@
                             <img src="pics/github-mark-white.svg" alt="GitHub" width="22" height="22">
                         </a>
                         <a href="https://orcid.org/0000-0003-4105-3443" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="ORCID profile" title="ORCID">iD</a>
-                        <!-- Uncomment and add your LinkedIn URL if you want to link it here -->
                         <a href="https://www.linkedin.com/in/elishamod" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">in</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <footer>
         <div class="container">
             <p>&copy; 2026 Elisha Modelevsky. All rights reserved.</p>
         </div>
     </footer>
-    
+
     <a href="#" class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</a>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const starsContainer = document.getElementById('stars');
-            const starsCount = 100;
-            
-            for (let i = 0; i < starsCount; i++) {
-                const star = document.createElement('div');
-                star.classList.add('star');
-                
-                const x = Math.random() * 100;
-                const y = Math.random() * 100;
-                const size = Math.random() * 2 + 1;
-                const opacity = Math.random() * 0.8 + 0.2;
-                
-                star.style.left = x + '%';
-                star.style.top = y + '%';
-                star.style.width = size + 'px';
-                star.style.height = size + 'px';
-                star.style.opacity = opacity;
-                star.style.animation = `twinkle ${Math.random() * 5 + 2}s infinite`;
-                
-                starsContainer.appendChild(star);
-            }
-            
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes twinkle {
-                    0% { opacity: 0.2; }
-                    50% { opacity: 1; }
-                    100% { opacity: 0.2; }
-                }
-            `;
-            document.head.appendChild(style);
-            
-            const hamburgerMenu = document.getElementById('hamburger-menu');
-            const navLinks = document.getElementById('nav-links');
-            
-            hamburgerMenu.addEventListener('click', function() {
-                const isExpanded = this.classList.toggle('active');
-                navLinks.classList.toggle('active');
-                this.setAttribute('aria-expanded', isExpanded);
-            });
-            
-            const links = document.querySelectorAll('.nav-links li a');
-            links.forEach(link => {
-                link.addEventListener('click', function() {
-                    hamburgerMenu.classList.remove('active');
-                    navLinks.classList.remove('active');
-                    hamburgerMenu.setAttribute('aria-expanded', 'false');
-                });
-            });
-            
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const targetSelector = this.getAttribute('href');
-                    if (targetSelector === '#') return;
-                    const target = document.querySelector(targetSelector);
-                    if (target) {
-                        e.preventDefault();
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
-            });
-            
-            const scrollTopButton = document.getElementById('scroll-top');
-            
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > 300) {
-                    scrollTopButton.classList.add('visible');
-                } else {
-                    scrollTopButton.classList.remove('visible');
-                }
-            });
-            
-            scrollTopButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 </body>
 </html>
