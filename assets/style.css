@@ -118,6 +118,7 @@ header {
     position: absolute;
     inset: 0;
     z-index: 1;
+    pointer-events: none;
 }
 
 .cosmic-bg {
@@ -125,15 +126,10 @@ header {
     opacity: 0.92;
 }
 
-.star {
-    position: absolute;
-    background-color: #fff;
-    border-radius: 50%;
-}
-
-@keyframes twinkle {
-    0%, 100% { opacity: 0.2; }
-    50% { opacity: 1; }
+.stars {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 .profile {
